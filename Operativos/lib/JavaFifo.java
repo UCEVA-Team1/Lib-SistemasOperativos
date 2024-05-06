@@ -1,4 +1,4 @@
-package Operativos;
+package Operativos.lib;
 
 public class JavaFifo{
 
