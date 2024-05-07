@@ -1,13 +1,13 @@
 #include <jni.h>
 
 /*
- * Class:     Operativos_lib_JavaFifo
+ * Class:     FifoJni_lib_FifoCalculator
  * Method:    fifo
- * Signature: ([Ljava/lang/String;I)[Ljava/lang/String;
+ * Signature: ([CI)[C
  */
-JNIEXPORT jobjectArray JNICALL Java_Operativos_lib_JavaFifo_fifo
+JNIEXPORT jcharArray JNICALL Java_FifoJni_lib_FifoCalculator_fifo
   (JNIEnv * env , jobject obj, jcharArray texto, jint size){
-  jsize len = (*env)->GetArrayLength(env, texto);
+jsize len = (*env)->GetArrayLength(env, texto);
     jchar *cadena = (*env)->GetCharArrayElements(env, texto, NULL);
 
     jint max = (int)len;
@@ -27,6 +27,7 @@ JNIEXPORT jobjectArray JNICALL Java_Operativos_lib_JavaFifo_fifo
 
         indicador = 0;
 
+
         for (jint j = 0; j < marcos; j++) {
             if (cola[j] == cadena[i]) {
                 indicador = 1;
@@ -36,7 +37,8 @@ JNIEXPORT jobjectArray JNICALL Java_Operativos_lib_JavaFifo_fifo
         if (indicador == 0) {
             cola[head] = cadena[i];
         }
- for (jint x = 0; x < marcos; x++) {
+
+        for (jint x = 0; x < marcos; x++) {
             resultado[pos++] = cola[x];
         }
     }
@@ -50,4 +52,3 @@ JNIEXPORT jobjectArray JNICALL Java_Operativos_lib_JavaFifo_fifo
 
 
 }
-
