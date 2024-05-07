@@ -1,11 +1,11 @@
 package FifoJni;
-import FifoJni.lib.FifoCalculator;
+import FifoJni.lib.JavaFifo;
 
 public class MainJNI{
 
    static {
 
-      System.loadLibrary("javafifocal");
+      System.loadLibrary("operativosfifo");
 
    }
 
